@@ -11,7 +11,12 @@ module.exports = (sequelize, DataTypes)=>{
         username: {
             type: DataTypes.STRING,
             allowNull:false
-        }
-    })
-   return Ideas
-}
+        },
+    });
+    Ideas.associate = (models)=>{
+        Ideas.hasMany(models.Comments, {
+            onDelete: "cascade",
+        })
+    }
+   return Ideas;
+};
