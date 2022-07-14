@@ -1,17 +1,21 @@
 .App {
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 40px;
+  text-align: center;
 }
 
 body {
   margin: 0;
   padding: 0;
 }
-
+.content{
+  
+  width: 100%;
+  min-height: 100vh;
+  
+  
+  display: inline-block;
+  
+  
+}
 .idea {
   float: left;
   min-width: 200px;
@@ -57,4 +61,73 @@ body {
   color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+/* Form */
+
+.createIdeaPage {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  padding: 20px;
+  
+  
+}
+
+.formContainer #inputCreateIdea {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.formContainer button {
+  margin-top: 15px;
+  height: 40px;
+  border: none;
+  background-color: lightskyblue;
+  border-radius: 5px;
+  color: white;
+}
+
+.formContainer button:hover {
+  cursor: pointer;
+  background-color: dodgerblue;
+}
+
+span {
+  color: red;
+}
+
+/* navbar */
+
+.nav {
+  width: 100%;
+  height: 70px;
+  background-color: dodgerblue;
+  display: flex;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+/* idea */
+.ideax{
+  font-size: 20px;
 }

@@ -1,31 +1,30 @@
-
 import './App.css';
-import axios from "axios";
-import {useEffect, useState} from "react"
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from 'react-router-dom';
+import Home from './pages/Home';
+import CreateIdea from './pages/CreateIdea';
+import Idea from './pages/Idea';
+
 function App() {
-  const [listOfIdeas, setListOfIdeas]=useState([]);
-  useEffect(()=>{
-     axios.get("http://localhost:3001/ideas").then((response)=>{
-        setListOfIdeas(response.data)
-     }) 
-    }, [])
+  
     return (
     
     <div className="App">
-      <header className="App-header">
-       
-        <p>
-          {listOfIdeas.map((value, key)=>{
-            return <div className="idea">
-              <div className='title'>{value.title}</div>
-              <div className='body'>{value.ideaText}</div>
-              <div className='footer'>{value.username}</div>
-            </div>
-          })}
-
-        </p>
-
-      </header>
+      <Router>
+        <div className='nav'>
+          <Link to="/createidea">Nowy pomysł</Link>
+          <Link to="/">Strona Główna</Link>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/createidea" element={<CreateIdea/>}/>
+          <Route path="/idea/:id" element={<Idea/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
