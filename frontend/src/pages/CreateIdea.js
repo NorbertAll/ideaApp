@@ -28,7 +28,7 @@ function CreateIdea() {
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
             
             <Form className="formContainer">
-                <h2>Stówrz nowy pomysł</h2>
+                <h2>Stwórz nowy pomysł</h2>
                 <label>Pomysł:</label>
                 <ErrorMessage name="title" component="span" />
                 <Field id="inputCreteIdea" name="title" placeholder="Title"/>
