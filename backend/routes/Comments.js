@@ -6,8 +6,8 @@ const {Comments}= require("../models");
 
 
 router.get('/:ideaId', async(req, res)=>{
-    const postId= req.params.id
-    const comments =await Comments.findAll({where: {IdeaId: postId}});
+    const ideaId= req.params.ideaId;
+    const comments =await Comments.findAll({where: {IdeaId: ideaId}});
     res.json(comments)
 
 });
