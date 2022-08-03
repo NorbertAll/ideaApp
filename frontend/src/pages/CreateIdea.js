@@ -13,7 +13,7 @@ function CreateIdea() {
       const validationSchema = Yup.object().shape({
         title: Yup.string().required("Tytuł jest wymagany"),
         ideaText: Yup.string().required("Musisz opisać pomysł"),
-        username: Yup.string().min(3).max(15).required("Użytkownik wymagany"),
+        username: Yup.string().required("Użytkownik wymagany"),
       });
     
       const onSubmit = (data) => {
@@ -22,7 +22,7 @@ function CreateIdea() {
         });
       };
   return (
-    <div className='createIdeaPage'>
+    <div className='createForm'>
         
         
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
