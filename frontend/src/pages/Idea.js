@@ -20,11 +20,16 @@ function Idea() {
             .post("http://localhost:3001/comments", {
               commentBody: newComment,
               IdeaId: id,
-            })
+            }, {headers:{
+              accessToken: sessionStorage.getItem("accessToken")
+            }})
             .then((response) => {
+              if(response.data.error){
+                console.log(response.data.error)
+              }else{
               const commentToAdd = { commentBody: newComment };
               setComments([...comments, commentToAdd]);
-              setNewComment("");
+              setNewComment("");}
             });
         };
       

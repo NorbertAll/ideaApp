@@ -1,6 +1,7 @@
 const express= require('express');
 const router =express.Router();
 const {Ideas}= require("../models");
+const { validateToken }=require('../middlewares/AuthMiddleware')
 
 router.get('/', async (req, res)=>{
     const listOfIdeas= await Ideas.findAll();
@@ -16,7 +17,7 @@ router.get('/byId/:id', async(req, res)=>{
 });
 
 //router.post();
-router.post('/',async (req, res)=>{
+router.post('/', validateToken, async (req, res)=>{
     const idea =req.body;
     await Ideas.create(idea);
     res.json(idea);
