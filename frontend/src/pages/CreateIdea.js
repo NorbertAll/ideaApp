@@ -18,7 +18,7 @@ function CreateIdea() {
     
       const onSubmit = (data) => {
         axios.post("http://localhost:3001/ideas", data, {headers:{
-          accessToken: sessionStorage.getItem("accessToken")
+          accessToken: localStorage.getItem("accessToken")
         }}).then((response) => {
           if(response.data.error){
             console.log(response.data.error)

@@ -21,13 +21,13 @@ function Idea() {
               commentBody: newComment,
               IdeaId: id,
             }, {headers:{
-              accessToken: sessionStorage.getItem("accessToken")
+              accessToken: localStorage.getItem("accessToken")
             }})
             .then((response) => {
               if(response.data.error){
                 console.log(response.data.error)
               }else{
-              const commentToAdd = { commentBody: newComment };
+              const commentToAdd = { commentBody: newComment ,username:response.data.username};
               setComments([...comments, commentToAdd]);
               setNewComment("");}
             });
@@ -58,7 +58,8 @@ function Idea() {
           {comments.map((comment, key) => {
             return (
               <div key={key} className="comment">
-                {comment.commentBody}
+                {comment.commentBody}<br/>
+                <label>Username:{comment.username}</label>
               </div>
             );
           })}
