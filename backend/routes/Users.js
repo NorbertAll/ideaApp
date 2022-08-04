@@ -27,7 +27,7 @@ router.post('/login',async (req, res)=>{
     bcrypt.compare(password, user.password).then((match)=>{
         if(!match) res.json({error: "Wrong username or password"});
         const accessToken = sign({username: user.username, id:user.id}, "importantsecret")
-        res.json(accessToken)
+        res.json({token: accessToken, username:username, id: user.id})
     })}
 });
 router.get('/token',validateToken,async (req, res)=>{

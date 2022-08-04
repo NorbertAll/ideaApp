@@ -127,7 +127,11 @@ span {
   text-decoration: none;
   color: white;
 }
-
+.nav button{
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}
 /* idea */
 .ideax{
   font-size: 20px;
