@@ -16,7 +16,12 @@ module.exports = (sequelize, DataTypes)=>{
     Ideas.associate = (models)=>{
         Ideas.hasMany(models.Comments, {
             onDelete: "cascade",
+        });
+
+        Ideas.hasMany(models.Likes, {
+            onDelete: "cascade",
         })
     }
+    
    return Ideas;
 };

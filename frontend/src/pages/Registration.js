@@ -22,7 +22,7 @@ const Registration = () => {
             delete data.password_confirm;
              axios.post("http://localhost:3001/auth", data).then ((response) => {
                 console.log(response);
-                //navigate(`/`)
+                navigate(`/login`)
              });
         }
         else{

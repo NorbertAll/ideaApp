@@ -7,13 +7,13 @@ function CreateIdea() {
     const initialValues = {
         title: "",
         ideaText: "",
-        username: "",
+
       };
       let navigate=useNavigate();
       const validationSchema = Yup.object().shape({
         title: Yup.string().required("Tytuł jest wymagany"),
         ideaText: Yup.string().required("Musisz opisać pomysł"),
-        username: Yup.string().required("Użytkownik wymagany"),
+    
       });
     
       const onSubmit = (data) => {
@@ -42,9 +42,6 @@ function CreateIdea() {
                 <ErrorMessage name="ideaText" component="span" />
                 <Field id="inputCreteIdea" name="ideaText" placeholder="Idea"/>
 
-                <label>Twórca:</label>
-                <ErrorMessage name="username" component="span" />
-                <Field id="inputCreteIdea" name="username" placeholder="Username"/>
                 <button type='submit'>Stwórz</button>
             </Form>
 

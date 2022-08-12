@@ -19,6 +19,9 @@ router.get('/byId/:id', async(req, res)=>{
 //router.post();
 router.post('/', validateToken, async (req, res)=>{
     const idea =req.body;
+    idea.username = req.user.username;
+    idea.UserId = req.user.id;
+    console.log(idea);
     await Ideas.create(idea);
     res.json(idea);
 });
