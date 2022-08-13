@@ -6,8 +6,16 @@ const { validateToken }=require('../middlewares/AuthMiddleware')
 router.post("/", validateToken, async(req, res)=>{
     const {IdeaId} =req.body;
     const UserId = req.user.id;
-    Likes.create({IdeaId: IdeaId, UserId: UserId})
-    res.json("Succes like")
+
+    const found= await Likes.findOne({ where: { IdeaId: IdeaId, UserId:UserId}})
+    if(!found){
+       await Likes.create({IdeaId: IdeaId, UserId: UserId}) 
+       res.json("Succes like")
+    }else{
+        await Likes.destroy({ where: { IdeaId: IdeaId, UserId:UserId}});
+        res.json("Succes unlike")
+    }
+
 })
 
 module.exports = router;
