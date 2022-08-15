@@ -237,3 +237,23 @@ button {
 .loginContainer input {
   border: 2px solid dodgerblue;
 }
+/* footer idea */
+.footer .username {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.footer .buttons {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.likeBtn {
+  color: rgba(250, 250, 250, 0.542);
+}
+.unlikeBtn {
+  color: white;
+}

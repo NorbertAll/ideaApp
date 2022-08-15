@@ -3,9 +3,13 @@ const router =express.Router();
 const {Ideas, Likes}= require("../models");
 const { validateToken }=require('../middlewares/AuthMiddleware')
 
-router.get('/', async (req, res)=>{
+
+
+router.get('/', validateToken, async (req, res)=>{
     const listOfIdeas= await Ideas.findAll({include: [Likes]});
-    res.json(listOfIdeas);
+    
+    const likedIdea= await Likes.findAll({where: {UserId: req.user.id}});
+    res.json({listOfIdeas:listOfIdeas, likedIdea:likedIdea});
 });
 
 
