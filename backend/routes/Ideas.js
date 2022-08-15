@@ -29,6 +29,10 @@ router.post('/', validateToken, async (req, res)=>{
     await Ideas.create(idea);
     res.json(idea);
 });
-
+router.delete("/:ideaId", validateToken, async (req, res)=>{
+    const ideaId =req.params.ideaId
+    await Ideas.destroy({where:{id:ideaId}})
+    res.json("delete success");
+})
 
 module.exports = router;

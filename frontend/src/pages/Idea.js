@@ -1,16 +1,18 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from '../helpers/AuthContext';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
 
 function Idea() {
     let {id} =useParams();
     const [ ideaObject, setIdeaObject]= useState({});
     const [comments, setComments] = useState([]);
+    
     const [newComment, setNewComment] = useState("");
     const {authState}=useContext(AuthContext)
-
+    let navigate=useNavigate()
     useEffect(()=>{
         axios.get(`http://localhost:3001/ideas/byId/${id}`).then((response)=>{
             setIdeaObject(response.data)
@@ -48,10 +50,22 @@ function Idea() {
       }));
    });
   }
+
+  const deleteIdea=(id)=>{
+    axios.delete(`http://localhost:3001/ideas/${id}`, {headers:{
+      accessToken: localStorage.getItem("accessToken")
+    }})
+    .then((response)=>{
+      alert(response.data)
+      navigate("/")
+   });
+  }
+
+
   return (
     <div className='ideaPage'>
         <div className='ideax'>
-          <HighlightOffIcon className='delicon'/>
+          {authState.username===ideaObject.username&&(<HighlightOffIcon onClick={()=>{deleteIdea(ideaObject.id)}} className='delicon'/>)}
             <div className='title'>
 
               
@@ -80,7 +94,7 @@ function Idea() {
               <div key={key} className="comment">
                 {comment.commentBody}<br/>
                 <label>Username:{comment.username}</label>
-                {authState.username===comment.username&& <HighlightOffIcon className='delCom' onClick={()=>{deleteComment(comment.id)}}/>}
+                {authState.username===comment.username && <HighlightOffIcon className='delCom' onClick={()=>{deleteComment(comment.id)}}/>}
               </div>
             );
           })}
