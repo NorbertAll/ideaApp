@@ -15,7 +15,21 @@ function Home() {
 
   const likeIdea= (ideaId)=> {
     axios.post("http://localhost:3001/likes", {IdeaId: ideaId}, {headers: {accessToken:localStorage.getItem("accessToken")}}).then((response)=>{
-        alert(response.data)
+      
+        setListOfIdeas(listOfIdeas.map((idea)=>{
+          if(idea.id===ideaId){
+            if(response.data.liked===true){
+              return {...idea, Likes: [...idea.Likes, 0]}
+            }else{
+             const likeArray=idea.Likes
+             likeArray.pop()
+              return {...idea, Likes: likeArray}
+            }
+            
+          }else{
+            return idea
+          }
+        }))
      }) 
   }
 
@@ -26,7 +40,14 @@ function Home() {
             return <div className="idea" key={value.id} >
               <div className='title'>{value.title}</div>
               <div className='body'  onClick={()=>{navigate(`/idea/${value.id}`)}}>{value.ideaText}</div>
-              <div className='footer'>{value.username} <button onClick={()=>likeIdea(value.id)}>Like</button></div>
+              <div className='footer'>
+                {value.username} 
+                <button onClick={()=>likeIdea(value.id)}>
+                  {" "}
+                  Like
+                </button>
+                <label>{value.Likes.length}</label>
+              </div>
             </div>
           })}
         </div>

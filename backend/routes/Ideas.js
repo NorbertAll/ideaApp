@@ -1,10 +1,10 @@
 const express= require('express');
 const router =express.Router();
-const {Ideas}= require("../models");
+const {Ideas, Likes}= require("../models");
 const { validateToken }=require('../middlewares/AuthMiddleware')
 
 router.get('/', async (req, res)=>{
-    const listOfIdeas= await Ideas.findAll();
+    const listOfIdeas= await Ideas.findAll({include: [Likes]});
     res.json(listOfIdeas);
 });
 
