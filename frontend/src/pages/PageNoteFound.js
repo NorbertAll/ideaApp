@@ -6,7 +6,7 @@ const PageNoteFound = () => {
     <div>
      <h1>Page Not Found</h1>
       <h3>
-        Go to the Home Page: <Link to="/"> Home Page</Link>
+        This Page doesn't exist
       </h3>
     </div>
   )

@@ -23,11 +23,15 @@ router.post('/login',async (req, res)=>{
     if(!user){
         res.json({error: "User Doesn't exist"});}
     else{
-    console.log(user);
+    
     bcrypt.compare(password, user.password).then((match)=>{
-        if(!match) res.json({error: "Wrong username or password"});
+        if(!match){ 
+            res.json({error: "Wrong username or password"});
+            }
+        else{
         const accessToken = sign({username: user.username, id:user.id}, "importantsecret")
         res.json({token: accessToken, username:username, id: user.id})
+    }
     })}
 });
 router.get('/token',validateToken,async (req, res)=>{

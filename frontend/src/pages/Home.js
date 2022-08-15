@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from "axios";
 import {useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { AuthContext } from '../helpers/AuthContext';
+
 
 function Home() {
-
+    const {authState}=useContext(AuthContext)
     const [listOfIdeas, setListOfIdeas]=useState([]);
     const [likedList, setLikedList]=useState([]);
     let navigate=useNavigate();
@@ -15,7 +17,7 @@ function Home() {
         setListOfIdeas(response.data.listOfIdeas)
         setLikedList(response.data.likedIdea.map((like)=>{return like.IdeaId}))
         
-     }) 
+     })  
     }, []);
 
   const likeIdea= (ideaId)=> {
