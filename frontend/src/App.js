@@ -13,6 +13,7 @@ import Registration from './pages/Registration';
 import { AuthContext } from './helpers/AuthContext';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import PageNoteFound from './pages/PageNoteFound';
 
 function App() {
     const[authState, setAuthState]= useState({username: "", id:0, status:false});
@@ -63,6 +64,7 @@ function App() {
             <Route path="/idea/:id" element={<Idea/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/registration" element={<Registration/>}/>
+            <Route path="/*" exact element={<PageNoteFound/>}/>
           </Routes>
         </Router>
       </AuthContext.Provider>
