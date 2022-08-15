@@ -40,7 +40,8 @@ body {
   padding: 10px;
   border-bottom: 1px solid lightgray;
   background-color: dodgerblue;
-  display: grid;
+  display: flex;
+  align-items: center;
   place-content: center;
   color: white;
 }
@@ -162,7 +163,7 @@ span {
 /* Komnetarze*/
 .addCommentContainer input, button {
   text-align: center;
-  width: 70%;
+  width: 60%;
   height: 50px;
   border-radius: 8px;
   border: none;
@@ -190,6 +191,7 @@ span {
 }
 
 .listOfComments .comment {
+  position: relative;
   width: 70%;
   height: auto;
   padding: 30px;
@@ -257,3 +259,79 @@ button {
 .unlikeBtn {
   color: white;
 }
+
+
+.ideax {
+  
+ position: relative;
+  min-height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-right: 20%;
+  margin-left: 20%;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.ideax:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+.ideax .title {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  background-color: dodgerblue;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  color: white;
+}
+
+.ideax .body {
+  flex: 70%;
+  display: grid;
+  place-content: center;
+}
+
+.ideax .footer {
+  position: relative;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background-color: dodgerblue;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ideax .title .titleName{ 
+  justify-content: center;
+  align-items: center;
+}
+.ideax .delicon{
+
+  display: inline-block;
+ 
+margin:5px 5px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+}
+
+.delCom{
+  display: inline-block;
+ 
+margin:5px 5px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  
+}
+

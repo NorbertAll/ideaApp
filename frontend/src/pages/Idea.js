@@ -2,6 +2,7 @@ import React, {useEffect, useState, useContext} from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from '../helpers/AuthContext';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 function Idea() {
     let {id} =useParams();
@@ -50,9 +51,15 @@ function Idea() {
   return (
     <div className='ideaPage'>
         <div className='ideax'>
-            <div className='titlex'>Nazwa Pomysłu: <b>{ideaObject.title}</b></div>
-            <div className='ideaTextx'>Opis Pomysłu: <b>{ideaObject.ideaText}</b></div>
-            <div className='usernamex'>Autor Pomysłu: <b>{ideaObject.username}</b></div>
+          <HighlightOffIcon className='delicon'/>
+            <div className='title'>
+
+              
+              <div className='titleName'>{ideaObject.title}</div>
+              
+            </div>
+            <div className='body'>{ideaObject.ideaText}</div>
+            <div className='footer'>{ideaObject.username}</div>
         </div>
         <hr/>
         <div className="commentx">
@@ -73,7 +80,7 @@ function Idea() {
               <div key={key} className="comment">
                 {comment.commentBody}<br/>
                 <label>Username:{comment.username}</label>
-                {authState.username===comment.username&& <button onClick={()=>{deleteComment(comment.id)}}>X</button>}
+                {authState.username===comment.username&& <HighlightOffIcon className='delCom' onClick={()=>{deleteComment(comment.id)}}/>}
               </div>
             );
           })}
