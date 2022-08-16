@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../helpers/AuthContext";
+import { Box, Link, TextField, Stack } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const Login = () => {
     const [username, setUsername]=useState("");
@@ -24,13 +26,25 @@ const Login = () => {
         });
     }
   return (
-    <div className="loginContainer">
+    <Box
+    className="createForm"
+    component="form"
+    sx={{
+      '& > :not(style)': { m: 1, width: '25ch' }, 
+      display: 'flex',
+        flexDirection: 'column',
+    }}
+    noValidate
+    
+    autoComplete="off"
+  >
+    <h2>Logowanie</h2>
         <label>Username:</label>
-        <input type="text" onChange={(event)=>{setUsername(event.target.value);}}/>
+        <TextField type="text" label="username" onChange={(event)=>{setUsername(event.target.value);}}/>
         <label>Password:</label>
-        <input type="password" onChange={(event)=>{setPassword(event.target.value);}}/>
-        <button onClick={login}>Login</button>
-    </div>
+        <TextField type="password" label="password" onChange={(event)=>{setPassword(event.target.value);}}/>
+        <Button variant="contained" color="success" onClick={login}>Login</Button>
+    </Box>
 
   );
 };

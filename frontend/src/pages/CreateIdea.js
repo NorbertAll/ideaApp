@@ -1,5 +1,7 @@
 import React from 'react';
+import { LoadingButton } from '@mui/lab';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
+import { Box, Link, TextField, Stack } from '@mui/material';
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
@@ -32,17 +34,17 @@ function CreateIdea() {
         
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
             
-            <Form className="formContainer">
+            <Form  className="formContainer">
                 <h2>Stwórz nowy pomysł</h2>
                 <label>Pomysł:</label>
                 <ErrorMessage name="title" component="span" />
-                <Field id="inputCreteIdea" name="title" placeholder="Title"/>
-
+                <Field as={TextField} id="inputCreteIdea" label="Pomysł" name="title" placeholder="Title"/>
+                <br/>
                 <label>Opis Pomysłu:</label>
                 <ErrorMessage name="ideaText" component="span" />
-                <Field id="inputCreteIdea" name="ideaText" placeholder="Idea"/>
+                <Field as={TextField} id="inputCreteIdea" label="Opis pomysłu" name="ideaText" placeholder="Idea"/>
 
-                <button type='submit'>Stwórz</button>
+                <button  type='submit'>Stwórz</button>
             </Form>
 
         </Formik>

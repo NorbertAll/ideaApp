@@ -231,14 +231,9 @@ button {
   margin: 10px;
 }
 
-.loginContainer button {
-  background-color: dodgerblue;
-  color: white;
-}
 
-.loginContainer input {
-  border: 2px solid dodgerblue;
-}
+
+
 /* footer idea */
 .footer .username {
   flex: 50%;

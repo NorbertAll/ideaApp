@@ -3,6 +3,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
+import { Box, Link, TextField, Stack } from '@mui/material';
 
 const Registration = () => {
     const initialValues = {
@@ -40,15 +41,16 @@ const Registration = () => {
             <h2>Registration</h2>
             <label>Username:</label>
             <ErrorMessage name="username" component="span" />
-            <Field id="username" name="username" placeholder="Username"/>
-
+            <Field as={TextField} id="username" label="username" name="username" placeholder="Username"/>
+            <br/>
             <label>Password:</label>
             <ErrorMessage name="password" component="span" />
-            <Field id="password" name="password" type="password" placeholder="password"/  >
-
+            <Field as={TextField} id="password" label="password" name="password" type="password" placeholder="password"/  >
+            <br/>
             <label>Confirm Password:</label>
             <ErrorMessage name="password_confirm" component="span" />
-            <Field id="password_confirm" name="password_confirm" type="password" placeholder="Confirm Password"/>
+            <Field as={TextField} id="password_confirm" label="confirm password" name="password_confirm" type="password" placeholder="Confirm Password"/>
+            <br/>
             <button type='submit'>Registration</button>
         </Form>
 

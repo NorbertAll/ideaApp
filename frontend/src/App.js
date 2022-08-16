@@ -14,6 +14,8 @@ import { AuthContext } from './helpers/AuthContext';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PageNoteFound from './pages/PageNoteFound';
+import Button from '@mui/material/Button';
+
 
 function App() {
     const[authState, setAuthState]= useState({username: "", id:0, status:false});
@@ -56,7 +58,7 @@ function App() {
             <Link to="/">Strona Główna</Link>
               <div className='loggedInContainer' >
               <h1>{authState.username}</h1>
-              {authState.status &&<button onClick={logout}>Logout</button>}
+              {authState.status &&<Button color="error" onClick={logout}>Logout</Button>}
               </div></>
             )}
             
