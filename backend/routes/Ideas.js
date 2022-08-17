@@ -34,6 +34,20 @@ router.post('/', validateToken, async (req, res)=>{
     await Ideas.create(idea);
     res.json(idea);
 });
+
+router.put('/title', validateToken, async (req, res)=>{
+    const {newTitle, id} =req.body;
+    await Ideas.update({title: newTitle}, {where: {id:id}})
+   
+    res.json(newTitle);
+});
+router.put('/ideaText', validateToken, async (req, res)=>{
+    const {newText, id} =req.body;
+    await Ideas.update({ideaText: newText}, {where: {id:id}})
+   
+    res.json(newText);
+});
+
 router.delete("/:ideaId", validateToken, async (req, res)=>{
     const ideaId =req.params.ideaId
     await Ideas.destroy({where:{id:ideaId}})

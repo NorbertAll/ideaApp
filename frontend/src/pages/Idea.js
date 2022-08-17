@@ -61,18 +61,36 @@ function Idea() {
    });
   }
 
-
+  const editIdea = (option) =>{
+    if(option ==="title"){
+      let newTitle = prompt("Enter New Title")
+      axios.put("http://localhost:3001/ideas/title", {newTitle:newTitle, id:id}, {headers:{
+        accessToken: localStorage.getItem("accessToken")
+      }})
+      setIdeaObject({...ideaObject, title: newTitle})
+    }else{
+      if(option==="body"){
+        let newBody = prompt("Enter New Description");
+        axios.put("http://localhost:3001/ideas/ideaText", {newText:newBody, id:id}, {headers:{
+        accessToken: localStorage.getItem("accessToken")
+      }})
+      setIdeaObject({...ideaObject, ideaText: newBody})
+      }else{
+        alert("error");
+      }
+    }
+  }
   return (
     <div className='ideaPage'>
         <div className='ideax'>
           {authState.username===ideaObject.username&&(<HighlightOffIcon onClick={()=>{deleteIdea(ideaObject.id)}} className='delicon'/>)}
-            <div className='title'>
+            <div className='title' onClick={()=>{if(authState.username===ideaObject.username)editIdea("title")}}>
 
               
               <div className='titleName'>{ideaObject.title}</div>
               
             </div>
-            <div className='body'>{ideaObject.ideaText}</div>
+            <div className='body'  onClick={()=>{if(authState.username===ideaObject.username)editIdea("body")}}>{ideaObject.ideaText}</div>
             <div className='footer'>{ideaObject.username}</div>
         </div>
         <hr/>
