@@ -1,6 +1,35 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap');
+
+
+
+/* BASE STYLES */
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend', sans-serif;
+  color: inherit;
+  font-size: inherit;
+  scroll-behavior: smooth;
 }
+.app{
+  min-height: 100vh;
+}
+
+body{
+  line-height: 1.8em;
+  font-weight: 400;
+  font-size: 16px;
+  height: 100%;
+  position:relative;
+}
+
+a {
+  text-decoration: none;
+}
+
 
 body {
   margin: 0;
@@ -10,15 +39,19 @@ body {
   
   width: 100%;
   min-height: 100vh;
-  
-  
-  display: inline-block;
+  color: var(white);
+  background-image: url(img/background.jpg);
+
   
   
 }
 .none {
   text-decoration: none;
   color: white;
+}
+.none:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .idea {
@@ -43,8 +76,8 @@ body {
 }
 .idea .title {
   padding: 10px;
-  border-bottom: 1px solid lightgray;
-  background-color: dodgerblue;
+  border-bottom: 1px solid black;
+  background-color: rgb(75, 76, 73);
   display: flex;
   align-items: center;
   place-content: center;
@@ -53,6 +86,7 @@ body {
 
 .idea .body {
   flex: 70%;
+  background: grey;
   display: grid;
   place-content: center;
 }
@@ -63,7 +97,7 @@ body {
   display: flex;
   align-items: center;
   padding-left: 15px;
-  background-color: dodgerblue;
+  background-color:  rgb(75, 76, 73);
   color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -103,14 +137,12 @@ body {
   margin-top: 15px;
   height: 40px;
   border: none;
-  background-color: lightskyblue;
   border-radius: 5px;
-  color: white;
 }
 
 .formContainer button:hover {
   cursor: pointer;
-  background-color: dodgerblue;
+  background-color: green;
 }
 
 span {
@@ -122,7 +154,7 @@ span {
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: dodgerblue;
+  background-color: rgb(60, 61, 59);
   display: flex;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -168,6 +200,8 @@ span {
 /* Komnetarze*/
 .addCommentContainer input, button {
   text-align: center;
+  align-items: center;
+  margin-left: 20%;
   width: 60%;
   height: 50px;
   border-radius: 8px;
@@ -175,16 +209,20 @@ span {
 
 }
 .addCommentContainer button {
-  background-color: lightskyblue;
+  background-color: grey;
   color: white;
+  align-items: center;
+  margin-left: 40%;
+  width: 20%;
+  
 }
 .addCommentContainer button:hover {
-  background-color: dodgerblue;
+  background-color: green;
   color: white;
 }
 
 .addCommentContainer input {
-  border: 2px solid dodgerblue;
+  border: 2px solid grey;
 }
 
 .commentx .listOfComments {
@@ -197,12 +235,16 @@ span {
 
 .listOfComments .comment {
   position: relative;
+  text-align: center;
   width: 70%;
   height: auto;
-  padding: 30px;
+  padding: 5px;
   border: 1px solid lightgray;
   border-radius: 5px;
   margin-top: 20px;
+}
+.authorcomment{
+  text-align: right;
 }
 
 #individual {
@@ -286,7 +328,7 @@ Link {
 .ideax .title {
   padding: 10px;
   border-bottom: 1px solid lightgray;
-  background-color: dodgerblue;
+  background-color: rgb(75, 76, 73);
   display: flex;
   align-items: center;
   place-content: center;
@@ -306,7 +348,7 @@ Link {
   display: flex;
   align-items: center;
   padding-left: 15px;
-  background-color: dodgerblue;
+  background-color: rgb(75, 76, 73);
   color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -337,4 +379,16 @@ margin:5px 5px 0 0;
   
   
 }
+
+.footerx{
+    position:absolute;
+		bottom:0;
+		width:100%;
+		height:60px;		/* Wysokość nagłówka */
+		background: rgb(60, 61, 59);
+    color: white;
+    text-align: center;
+	}
+
+
 

@@ -110,8 +110,8 @@ function Idea() {
           {comments.map((comment, key) => {
             return (
               <div key={key} className="comment">
-                {comment.commentBody}<br/>
-                <label>Username:{comment.username}</label>
+                <div className='bodycomment'><b>{comment.commentBody}</b></div>
+                <div className='authorcomment'>{comment.username}</div>
                 {authState.username===comment.username && <HighlightOffIcon className='delCom' onClick={()=>{deleteComment(comment.id)}}/>}
               </div>
             );

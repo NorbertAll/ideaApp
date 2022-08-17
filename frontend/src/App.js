@@ -14,9 +14,9 @@ import Registration from './pages/Registration';
 import { AuthContext } from './helpers/AuthContext';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Button from '@mui/material/Button';
+//import Button from '@mui/material/Button';
 import Profile from './pages/Profile';
-
+import Button from 'react-bootstrap/Button';
 
 function App() {
     const[authState, setAuthState]= useState({username: "", id:0, status:false});
@@ -46,22 +46,24 @@ function App() {
     }
     return (
     
-    <div className="App">
+    <div className="app">
       <AuthContext.Provider value={{authState, setAuthState}}>
         <Router>
           <div className='navbar'>
 
            
-            {!authState.status ?(<>
+            {!authState.status ?(<div>
             <Link to="/login">Login</Link>
             <Link to="/registration">Registraion</Link>
-            </>): ( 
+            </div>): ( 
             <>
+            <div>
             <Link to="/createidea">Nowy pomysł</Link>
             <Link to="/">Strona Główna</Link>
+            </div>
               <div className='loggedInContainer' >
               <h1>{authState.username}</h1>
-              {authState.status &&<Button color="error" onClick={logout}>Logout</Button>}
+              {authState.status &&<Button variant="outline-danger" onClick={logout}>Logout</Button>}
               </div></>
             )}
             
