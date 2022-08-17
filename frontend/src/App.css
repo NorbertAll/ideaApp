@@ -16,6 +16,11 @@ body {
   
   
 }
+.none {
+  text-decoration: none;
+  color: white;
+}
+
 .idea {
   float: left;
   min-width: 200px;
@@ -233,13 +238,16 @@ button {
 
 
 
-
+Link {
+  text-decoration: none;
+}
 /* footer idea */
 .footer .username {
   flex: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  
 }
 .footer .buttons {
   flex: 50%;

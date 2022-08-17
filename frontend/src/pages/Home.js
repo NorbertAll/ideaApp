@@ -58,7 +58,7 @@ function Home() {
               <div className='title'>{value.title}</div>
               <div className='body'  onClick={()=>{navigate(`/idea/${value.id}`)}}>{value.ideaText}</div>
               <div className='footer'>
-                <div className='username'><Link to ={`/profile/${value.id}`}> {value.username} </Link></div> 
+                <div className='username'><Link className='none' to ={`/profile/${value.id}`}> {value.username} </Link></div> 
                 <div className='buttons'>
                   <ThumbUpIcon onClick={()=>likeIdea(value.id)} className={likedList.includes(value.id)?"unlikeBtn":"likeBtn"} />
                  
