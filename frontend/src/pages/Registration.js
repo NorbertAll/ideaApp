@@ -21,7 +21,7 @@ const Registration = () => {
       const onSubmit = (data) => {
         if(data.password===data.password_confirm){
             delete data.password_confirm;
-             axios.post("http://localhost:3001/auth", data).then ((response) => {
+             axios.post("http://localhost:3001/user", data).then ((response) => {
                 console.log(response);
                 navigate(`/login`)
              });

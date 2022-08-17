@@ -19,7 +19,12 @@ router.get('/byId/:id', async(req, res)=>{
     res.json(idea)
 
 });
+router.get('/byuserId/:id', async(req, res)=>{
+    const userId= req.params.id
+    const ideas= await Ideas.findAll({where: {UserId: userId}});
+    res.json(ideas)
 
+});
 //router.post();
 router.post('/', validateToken, async (req, res)=>{
     const idea =req.body;
